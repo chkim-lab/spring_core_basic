@@ -5,7 +5,7 @@ public class Member {
     //멤버의 속성 : 필드 선언
     private Long id; //회원 식별코드
     private String name; //회원 이름
-    private Grade grade = Grade.VIP; //회원 등급
+    private Grade grade; //회원 등급
 
     //자바 규약(관례)상 만들어야 될 것
     //1. 기본 생성자

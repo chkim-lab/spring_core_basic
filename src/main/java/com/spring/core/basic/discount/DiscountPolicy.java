@@ -1,5 +1,7 @@
 package com.spring.core.basic.discount;
 
+import com.spring.core.basic.member.Member;
+
 public interface DiscountPolicy {
 
     /**
