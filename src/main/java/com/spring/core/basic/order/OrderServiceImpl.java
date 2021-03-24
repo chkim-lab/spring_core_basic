@@ -12,10 +12,15 @@ import com.spring.core.basic.member.MemoryMemberRepository;
 //      등급에 따라 적당한 할인정책에 의한 할인을 적용한 주문을 생성해야 함.
 public class OrderServiceImpl implements OrderService {
 
-    private MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
 //    private DiscountPolicy discountPolicy = new FixDiscountPolicy();
-    private DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

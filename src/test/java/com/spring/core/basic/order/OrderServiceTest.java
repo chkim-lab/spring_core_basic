@@ -1,5 +1,6 @@
 package com.spring.core.basic.order;
 
+import com.spring.core.basic.config.AppConfig;
 import com.spring.core.basic.member.Grade;
 import com.spring.core.basic.member.Member;
 import com.spring.core.basic.member.MemberService;
@@ -12,8 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    AppConfig appConfig = new AppConfig();
+
+    MemberService memberService = appConfig.memberService();
+    OrderService orderService = appConfig.orderService();
 
     @Test
     @DisplayName("VIP회원은 주문이 생성될 때 정률할인을 적용받아야 한다.")
